@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Bootstrap Sidebar</title>
+  <link rel="stylesheet" href="./style/bootstrap.min.css">
+  <link rel="stylesheet" href="./style/style.css">
+</head>
+<body class="">
+<div id="mainContainer" class="container p-0">
+  <div class="content">
+       <nav class="navbar navbar-dark bg-primary background-1 ">
+          <div class="container-fluid text-white d-flex justify-content-between align-items-center g-1">
+            <div class="logo col-sm-2 col-lg-3 ">
+               <button class="btn text-white d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+                 ☰
+               </button>
+                <img src="./image/logo.png" alt="logo">
+                <!-- <a class="navbar-brand ms-2 fs-2" href="#">S.A.M.S</a> -->
+              </div>
+              <h1 class="fs-1 align-items-center col-xsm-1 col-sm-2 col-lg-3 ">Student Dashboard</h1>
+              <div class="d-flex justify-content-between align-items-center br  col-sm-2 col-lg-3 d-none d-sm-flex ">
+                <img src="./image/user.png" alt="user-icon">
+                <div class="d-flex flex-column f-size">
+                  <h3>User name</h3>
+                  <p>Lorem ipsum dolor sit</p>
+                </div>  
+              </div>
+                <div class="mood form-check form-switch text-white col-xsm-3 col-sm-2 col-lg-3 ">
+                  <input class="form-check-input" type="checkbox" id="modeSwitch">
+                  <label class="form-check-label" for="modeSwitch">Dark Mode</label>
+                </div>        
+          </div>
+       </nav> 
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar (offcanvas for small screen, static for large) -->
+      <div id="sidebar" class=" offcanvas-md offcanvas-end bg-primary text-white col-sm-3 col-lg-2 p-0 min-vh-100 background hover-primary" tabindex="-1" id="sidebar">
+       
+        <h4 class="bg-secondary header rounded-2 p-3 mt-3">Dashboard</h4>
+        <nav class="nav flex-column">
+          <a class="nav-link text-white active hover" href="./index.html">Home</a>
+          <a class="nav-link text-white hover" href="#" id="loginBtn">My Attendance</a>
+          <a class="nav-link text-white hover" href="#" >My Result</a>
+          <a class="nav-link text-white hover" href="./login.html" >Log Out</a>
+           
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <main id="mainContent" class="col-md-9 col-lg-10 p-4">
+        <h2>Welcome to S.A.M.S Dashboard</h2>
+      </main>
+    </div>
+  </div>
+  </div>
+</div>
+
+<footer>
+      <div class="footer-end">
+              <div class="list-icon">
+                <img src="./image/fb.svg" alt="icon">
+                <img src="./image/git.svg" alt="icon">
+                <img src="./image/lm.svg" alt="icon">
+                <img src="./image/ld.svg" alt="ico">
+              </div>
+              <p>© 2024 Nayef All rights reserved.</p>
+       </div>
+</footer>
+  <!-- Navbar for small screens -->
+   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+
+<script src="../style/bootstrap.min.js"></script>
+<!-- <script src="../S.A.M.S/js/bootstrap.bundle.min.js"></script> -->
+<script>
+  const switchMode = document.getElementById('modeSwitch');
+  const container = document.getElementById('mainContainer');
+  const sidebar = document.getElementById('sidebar');
+  const run = document.getElementById('mainContent');
+  const loginBtn = document.getElementById('loginBtn'); 
+  
+  let isLoginOpen = false;
+  const originalContent = run.innerHTML;
+
+  // Dark mode toggle
+  switchMode.addEventListener('change', function() {
+    container.classList.toggle('dark-mode');
+  });
+
+  // Login page toggle
+  loginBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    if (!isLoginOpen) {
+      run.innerHTML = `
+ <div class="login col-sm-3 col-md-6 col-lg-12">
+        <h2>Student Datasheet</h2>
+ <table>
+    <thead class="container-fluid col-sm-12 col-md-6 col-lg-12">
+      <tr>
+        <th>Name</th>
+        <th>Roll</th>
+        <th>Shift</th>
+        <th>Semester</th>
+        <th>Department</th>
+        <th>Attendance (%)</th>
+      </tr>
+    </thead>
+    <tbody class="container-sm col-sm-12 col-md-6 col-lg-12 ">
+      <tr>
+        <td>Md Nahid Hasan Jamil</td>
+        <td>101</td>
+        <td>Morning</td>
+        <td>6th</td>
+        <td>Computer Technology</td>
+        <td>95%</td>
+      </tr>
+      <tr>
+        <td>Md Sabilul Bari</td>
+        <td>102</td>
+        <td>Morning</td>
+        <td>6th</td>
+        <td>Computer Technology</td>
+        <td>95%</td>
+      </tr>
+      <tr>
+        <td>Rakib Hossain</td>
+        <td>103</td>
+        <td>Evening</td>
+        <td>4th</td>
+        <td>Electrical Technology</td>
+        <td>89%</td>
+      </tr>
+      <tr>
+        <td>Sadia Islam</td>
+        <td>104</td>
+        <td>Morning</td>
+        <td>4th</td>
+        <td>Civil Technology</td>
+        <td>92%</td>
+      </tr>
+      <tr>
+        <td>Jamil Ahmed</td>
+        <td>105</td>
+        <td>Evening</td>
+        <td>6th</td>
+        <td>Civil Technology</td>
+        <td>88%</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+      
+      
+      `;
+      isLoginOpen = true;
+    } else {
+      run.innerHTML = originalContent;
+      isLoginOpen = false;
+    }
+     document.getElementById('loginBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const run = document.getElementById('mainContent');
+  });
+  });
+</script>
+
+</body>
+</html>

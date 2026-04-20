@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-form {
+    background: url(./img/bc.png) ;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 550px;
+    text-align: center;
+}
+
+.logo img {
+    width: 150px;
+    padding-bottom: 50px;
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #0b2c74;
+}
+
+h2 {
+    font-size: 30px;
+    margin: 40px 0 30px 0 ;
+    color: #333;
+    font-weight: 700;
+}
+h4{
+    height: 70px;
+    margin: auto;
+    text-align: left;
+    font-weight: 500;
+    line-height: 30px;
+
+}
+.input-box {
+    margin-bottom: 15px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus {
+    border-color: #2F80ED;
+    box-shadow: 0 0 4px rgba(47,128,237,0.3);
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.options a {
+    color: #2F80ED;
+    text-decoration: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2F80ED;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #1b5fd4;
+}
+
+.role-select {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.role {
+    padding: 8px 20px;
+    border: none;
+    background: #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.role.active {
+    background: #2F80ED;
+    color: white;
+}

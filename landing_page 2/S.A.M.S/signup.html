@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAMS - Create Account</title>
+  <link rel="stylesheet" href="./style/signup.css" />
+      <link rel="stylesheet" href="./style/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/landing.css">
+</head>
+</head>
+<body>
+  <!-- nav -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
+      <div class="container">
+        <a class="navbar-brand logo" href="#"><img src="./image/logo-2.jpeg" alt="logo" style="width:120px;"></a>
+        <button class="navbar-toggler mood" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse al" id="navbarNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-5">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>
+            <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+          </ul>
+          <div class="d-flex gap-2">
+            <a class="btn btn-outline-primary" href="login.html">Login</a>
+            <a class="btn btn-primary" href="signup.html">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- sign up -->
+<section class="login-form">
+  <div class="container">
+    <div class="form-box">
+      <h3>Create Your Account</h3>
+
+      <div class="user-type">
+        <button id="studentBtn" class="active">I am a Student</button>
+        <button id="teacherBtn">I am a Teacher</button>
+      </div>
+
+      <form id="signupForm">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="password" placeholder="Password" required />
+        <input type="password" placeholder="Confirm Password" required />
+                <div class="col-md-12 col-xl-12 teacher-field">
+                  <label for="form-select" class="pb-2" required>Department</label>
+                  <select class="form-select" aria-label="Default select example">
+                     <option selected>- - -CST/ENT/CIVIL/ENVT/RAC- - -</option>
+                     <option value="1">CST</option>
+                     <option value="2">ENT</option>
+                     <option value="3">CIVIL</option>
+                     <option value="4">ENVT</option>
+                     <option value="5">RAC</option>
+
+                   </select>
+                </div>
+
+                <div class="col-md-12 col-xl-12 teacher-field" id="teacherIds">
+                  <label for="session-field" class="pb-2" >Session</label>
+                  <input type="text" name="session" class="form-control" id="session-field" required="">
+                </div>
+
+                <div class="col-md-12 col-lg-6 col-xl-12 teacher-field" id="teacherIds">
+                  <label for="form-select" class="pb-2" >Semister</label>
+                  <select class="form-select" aria-label="Default select example">
+                     <option selected>- -Select- -</option>
+                     <option value="1">1st</option>
+                     <option value="2">2nd</option>
+                     <option value="3">3rd</option>
+                     <option value="4">4th</option>
+                     <option value="5">5th</option>
+                     <option value="6">6th</option>
+                     <option value="7">7th</option>
+                     <option value="8">8th</option>
+                   </select>
+                </div>
+
+                <div class="col-md-12 col-lg-6 col-xl-12 teacher-field" id="teacherIds">
+                  <label for="roll-field" class="pb-2">Roll Number</label>
+                  <input type="text" name="roll" id="roll-field" class="form-control" required="">
+                </div>
+                <div class="col-md-12 col-lg-10 col-xl-12 teacher-field">
+                 <label for="checkbox" class="pb-2">Shift</label>
+                 <div class="vertical" role="group" aria-label="Vertical checkbox toggle button group">
+    
+                   <input type="checkbox" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+                   <label class="btn btn-outline-dark" for="vbtn-radio1">1st Shift</label>
+
+                   <input type="checkbox" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+                   <label class="btn btn-outline-dark" for="vbtn-radio2">2nd Shift</label>
+               
+                 </div>
+                </div>
+        <input type="text" id="teacherId" placeholder="Teacher's ID" style="display:none;" />
+        <button type="submit" class="signup-btn">Sign Up</button>
+      </form>
+
+      <p class="login-text">
+        Already have your account? <a href="login.html">Login</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+      <div class="footer-end">
+              <div class="list-icon">
+                <img src="./image/fb.svg" alt="icon">
+                <img src="./image/git.svg" alt="icon">
+                <img src="./image/lm.svg" alt="icon">
+                <img src="./image/ld.svg" alt="ico">
+              </div>
+              <p>© 2024 Nayef All rights reserved.</p>
+       </div>
+</footer>
+
+  <script src="./js/signup.js"></script>
+  <script>
+  const checkboxes = document.querySelectorAll('input[name="vbtn-radio"]');
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', function() {
+      if (this.checked) {
+        // অন্য সবগুলো uncheck করো
+        checkboxes.forEach((other) => {
+          if (other !== this) {
+            other.checked = false;
+          }
+        });
+      }
+    });
+  });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Bootstrap Sidebar</title>
+  <link rel="stylesheet" href="../style/bootstrap.min.css">
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<body class="">
+<div id="mainContainer" class="container container-fluid p-0">
+  <div class="content">
+       <nav class="navbar navbar-expand-md navbar-dark bg-primary px-3 py-2 background-1 ">
+          <div class="container-fluid text-white d-flex justify-content-between align-items-center g-1">
+              <div class="logo col-sm-2 col-lg-3 ">
+                 <button class="btn text-white d-sm-none " type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+                   ☰
+                 </button>
+                <img src="../image/logo.png" alt="logo">
+                <!-- <a class="navbar-brand ms-2 fs-2" href="#">S.A.M.S</a> -->
+              </div>
+              <h1 class="h4 text-white ms-2 mb-0 ">Admin Dashboard</h1>
+              <div class="ms-auto d-none d-md-flex align-items-center mt-3 me-3 br ">
+                <img src="../image/user.png"  alt="user-icon">
+                <div class="d-flex flex-column f-size">
+                  <h3 class="mb-0">User name</h3>
+                  <small>Lorem ipsum dolor sit</small>
+                </div>  
+              </div>
+                <div class="mood form-check form-switch text-white">
+                  <input class="form-check-input" type="checkbox" id="modeSwitch">
+                  <label class="form-check-label" for="modeSwitch">Dark Mode</label>
+                </div>        
+          </div>
+       </nav> 
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar (offcanvas for small screen, static for large) -->
+      <div id="sidebar" class=" offcanvas-md offcanvas-end bg-primary text-white col-sm-3 col-lg-2 p-0 min-vh-100 background hover-primary" tabindex="-1" id="sidebar">
+       
+        <h4 class="bg-secondary header rounded-2 p-3 mt-3">Dashboard</h4>
+        <nav class="nav flex-column">
+          <a class="nav-link text-white active hover" href="../index.html">Home</a>
+          <a class="nav-link text-white hover" href="#">Admin</a>
+          <a class="nav-link text-white hover" href="teacher.html">Teacher</a>
+          <a class="nav-link text-white hover" href="student.html">Student Info</a>
+          <a class="nav-link text-white hover" href="#">Result</a>
+          <a class="nav-link text-white hover" href="#">Contact</a>
+          <a class="nav-link text-white hover" href="#">Help</a>
+        <!-- Button -->
+          <a class="nav-link text-white" href="#" id="loginBtn">Login</a>
+           
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <main id="mainContent" class="col-md-9 col-lg-10 p-4">
+        <h2>Welcome to S.A.M.S Dashboard</h2>
+      </main>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<footer>
+      <div class="footer-end">
+              <div class="list-icon">
+                <img src="./image/fb.svg" alt="icon">
+                <img src="./image/git.svg" alt="icon">
+                <img src="./image/lm.svg" alt="icon">
+                <img src="./image/ld.svg" alt="ico">
+              </div>
+              <p>© 2024 Nayef All rights reserved.</p>
+       </div>
+</footer>
+  <!-- Navbar for small screens -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="../js/bootstrap.bundle.min.js"></script> -->
+<!-- <script src="../S.A.M.S/js/bootstrap.bundle.min.js"></script> -->
+<script>
+  const switchMode = document.getElementById('modeSwitch');
+  const container = document.getElementById('mainContainer');
+  const sidebar = document.getElementById('sidebar');
+  const main = document.getElementById('mainContent');
+  const loginBtn = document.getElementById('loginBtn'); 
+  
+  let isLoginOpen = false;
+  const originalContent = main.innerHTML;
+
+  // Dark mode toggle
+  switchMode.addEventListener('change', function() {
+    container.classList.toggle('dark-mode');
+  });
+
+  // Login page toggle
+  loginBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    if (!isLoginOpen) {
+      main.innerHTML = `
+<div class="login container-lg col-lg-5 d-flex justify-content-center">
+    <h2>Login Page</h2>
+        <form class="p-4 bg-light rounded shadow text-primary"" style="width:400px;">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" id="username" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" class="form-control" required>
+          </div>
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="remember">
+            <label class="form-check-label" for="remember">Remember me</label>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        </div>
+      
+      
+      `;
+      isLoginOpen = true;
+    } else {
+      main.innerHTML = originalContent; // আগের Dashboard ফিরিয়ে আনে
+      isLoginOpen = false;
+    }
+     document.getElementById('loginBtn').addEventListener('click', function(e) {
+    e.preventDefault(); // prevent page reload
+
+    const main = document.getElementById('mainContent');
+  });
+  });
+</script>
+
+</body>
+</html>

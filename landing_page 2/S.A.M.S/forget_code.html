@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMS Login</title>
+    <link rel="stylesheet" href="./style/forget.css">
+      <link rel="stylesheet" href="./style/forget.css">
+    <link rel="stylesheet" href="./style/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/landing.css">
+    <style>
+      .success-msg {
+        display: none;
+        color: green;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+</head>
+<body>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
+      <div class="container">
+        <a class="navbar-brand logo" href="#"><img src="./image/logo-2.jpeg" alt="logo" style="width:120px;"></a>
+        <button class="navbar-toggler mood" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse al" id="navbarNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-5">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>
+            <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+          </ul>
+          <div class="d-flex gap-2">
+            <a class="btn btn-outline-primary" href="login.html">Login</a>
+            <a class="btn btn-primary" href="signup.html">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+  <section class="login-form">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <img src="./image/asset.png" alt="Logo">
+            </div>
+            <h4>Code was sent ✅ <span><h4>Check you email address</h4></span></h4>
+            
+
+            <form id="loginForm">
+                <div class="input-box">
+                    <input id="codeInput" type="text" placeholder="Enter your code here" required>
+                </div>
+                <div class="options">
+                    <button type="submit" class="login-btn">Login</button>
+                </div>
+                <div id="successMsg" class="success-msg">✅ Login Successful!</div>
+            </form>
+        </div>
+    </div>
+  </section>
+
+  <footer>
+      <div class="footer-end">
+              <div class="list-icon">
+                <img src="./image/fb.svg" alt="icon">
+                <img src="./image/git.svg" alt="icon">
+                <img src="./image/lm.svg" alt="icon">
+                <img src="./image/ld.svg" alt="ico">
+              </div>
+              <p>© 2024 Nayef All rights reserved.</p>
+       </div>
+</footer>
+
+    <script>
+      const form = document.getElementById('loginForm');
+      const successMsg = document.getElementById('successMsg');
+      const input = document.getElementById('codeInput'); 
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (input.value.trim() === "") {
+          alert("Please enter your code!");
+          return;
+        }
+
+        successMsg.style.display = 'block';
+        input.value = '';
+
+        setTimeout(() => {
+          successMsg.style.display = 'none';
+        }, 3000);
+      });
+    </script>
+</body>
+</html>
